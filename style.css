@@ -1,0 +1,192 @@
+/* Define custom color variables */
+:root {
+  --primary-color: #3498db; /* Change this to your primary color */
+  --secondary-color: #e74c3c; /* Change this to your secondary color */
+  --text-color: #333; /* Change this to your text color */
+  --background-color: #fff; /* Change this to your background color */
+}
+
+/* Reset some default browser styles */
+html {
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 18px;
+  padding: 1.5em;
+  line-height: 1.25em;
+  color: var(--text-color); /* Use the text color variable */
+  background-color: var(
+    --background-color
+  ); /* Use the background color variable */
+  margin: 0;
+}
+
+/* Header styles */
+h1 {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 600;
+  color: var(--primary-color); /* Use the primary color variable */
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 600;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: "Inconsolata", monospace;
+  font-size: 0.95em;
+}
+
+a {
+  color: var(--primary-color); /* Use the primary color variable */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+header {
+  margin: 0.5em auto;
+  text-align: center;
+}
+
+main {
+  margin: 0.5em 0;
+}
+
+/* Header secondary styles */
+.header-secondary {
+  font-size: 0.9em;
+}
+
+.header-title,
+.header-secondary div {
+  margin: 0.33em 0;
+}
+
+header a,
+.icons a {
+  color: var(--text-color); /* Use the text color variable */
+}
+
+header a:hover {
+  text-decoration: none;
+}
+
+/* Front page styles */
+.front-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bio-photo {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+@media (min-width: 500px) {
+  .front-page {
+    flex-direction: column-reverse;
+    column-gap: 1rem;
+  }
+
+  .bio-photo {
+    order: 1;
+  }
+}
+
+/* Experience section styles */
+.experience-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experience-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.experience-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.company-role {
+  /* Center the trademark text horizontally and vertically */
+  .footer-content {
+    text-align: center; /* Center horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center vertically */
+    height: 100%;
+  }
+
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.company {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.details {
+  margin-left: 10px; /* Adjust the margin as needed */
+}
+
+.role,
+.date {
+  margin: 0; /* Remove any default margins */
+}
+
+.date {
+  font-size: 0.9em;
+  color: var(--text-color); /* Use the text color variable */
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+}
+
+small {
+  color: #777;
+}
+
+/* Add your additional styles here as needed */
+
+/* Center the trademark text horizontally and vertically */
+.footer-content {
+  text-align: center; /* Center horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center vertically */
+  height: 100%;
+}
