@@ -1,7 +1,7 @@
 /* Define custom color variables */
 :root {
   --primary-color: #3498db; /* Change this to your primary color */
-  --secondary-color: #ff0000; /* Change this to your secondary color */
+  --secondary-color: #000000; /* Change this to your secondary color */
   --text-color: #333; /* Change this to your text color */
   --background-color: #fff; /* Change this to your background color */
 }
