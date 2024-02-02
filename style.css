@@ -190,3 +190,9 @@ small {
   align-items: center; /* Center vertically */
   height: 100%;
 }
+
+hr {
+  border: 1px solid #ccc; /* Set the color and thickness of the dividing line */
+  width: 100%; /* Adjust the width as needed */
+  margin: 20px auto; /* Center the line with automatic horizontal margins */
+}
