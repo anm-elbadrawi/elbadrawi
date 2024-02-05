@@ -56,7 +56,7 @@
 
             <hr>
             
-            <p><b>[Experience]</b></p>
+            <h2 align = "center"><b>[Experience]</b></h2>
             <!-- ... Rest of your HTML code ... -->
             <ul class="experience-list">
               <li class="experience-item">
@@ -104,80 +104,64 @@
 
       <hr>
 
-      <!--
-      <div class="accordion" id="accordionPanelsStayOpenExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
-              Item #1
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              <strong>Test</strong> Test
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-              Item #2
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              <strong>Test</strong> test
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-              Item #3
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              <strong>test</strong> test
-            </div>
-          </div>
-        </div>
-      </div>
-    -->
-    
-    <p><b>[Projects]</b></p>
+    <h2><b>[Projects]</b></h2>
 
       <div class="projects-container">
+          <!--
           <div class="project">
               <div class="container">
-                  <h4><b>VLSI CMOS IC Custom Gate Layout</b></h4> 
+                  <h4><b>CMOS IC Custom Gate Layout</b></h4> 
                   <img src="layout.png" alt="Screenshot of the Layout in Cadence Virtuoso" style="width:25%">
-                  <p>aaa.</p> 
+                  <p> aaaaaaaa </p> 
               </div>
           </div>
+      -->
 
-          <div class="project">
-              <div class="container">
-                  <h4><b>Energy-Harvesting Ultra-Low-Power RF Transmitter</b></h4>
-                  <img src="block_diagram.png" alt="Project 2 image" style="width:100%">
-                  <p>aaa.</p>
-              </div>
-          </div>
+      <div class="project">
+        <div class="container">
+            <h4><b>Energy-Harvesting Ultra-Low-Power RF Transmitter</b></h4>
+            <img src="block_diagram.png" alt="Energy-Harvesting Block Diagram" style="width:100%">
+            <p align="justify">
+              Created an battery-less ultra-low power RF transmitter powered by a small magnetic generator. The transmitter circuit consisted of a CC1101 Transceiver controlled with an MSP430 MCU via SPI. 
+              By programming the MSP430 in assembly, and using various techniques to speed up cold start time, the energy consumption per transmission was reduced to 300 microJoules. Rather than a Schottky diode for 
+              rectification, an LT8672 active rectifier controller was used to avoid the losses in the forward voltage drop of a diode. The reciever would recieve the signal through the CC1101 and send that data to the ESP32, 
+              where the light is toggled, and corresponding power data is sent to a web server for logging.
+            </p>
+        </div>
       </div>
 
       <div class="project">
         <div class="container">
             <h4><b>Soft-Core CPU Implemented with a Controller and Datapath</b></h4>
-            <img src="synth_layout.png" alt="Project 2 image" style="width:100%">
-            <p>aaa.</p>
+            <img src="synth_layout.png" alt="Synthesized Layout of the Controller" style="width:100%">
+            <p align="justify">
+              Developed and validated a soft-core CPU via VHDL, including the datapath, controller, and its peripherals. This was executed on a Zybo-7000 FPGA board for tangible testing and verification.
+              Various instructions were coded into the controller, for a total of 12 different instructions. The culmination of this work was a unique
+              instruction set that improved CPU functionality. Through detailed VHDL programming and comprehensive FPGA testing, it was ensured our design was robust under different conditions, 
+              showcasing the effectiveness of our instruction set architecture. The Fibonacci sequence was coded into the program memory, where it was tested and verified via simulations and on-board testing.
+            </p>
         </div>
       </div>
 
       <div class="project">
         <div class="container">
             <h4><b>Web-Enabled LCD Stock Ticker Display</b></h4>
-            <img src="project2.jpg" alt="Project 2 image" style="width:100%">
-            <p>aaa.</p>
+            <div class="video-wrapper">
+                <video width="320" height="240" controls>
+                  <source src="bootup_continual_scroll.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-wrapper">
+                <video width="320" height="240" controls>
+                  <source src="finished_pcb.mp4" type="video/mp4">
+                </video>
+            </div>
+            <p align="justify">
+              I designed and implemented a Stock-Ticker Display system, integrating real-time stock data visualization on a 1602 LCD powered by an ESP32 MCU. This project involved creating an
+              intuitive GUI for easy navigation through various menu options, utilizing freeRTOS for its development. I also developed software capable of extracting CBOE Level 2 stock data 
+              from HTML sources, enhancing the system's data scraping efficiency. Rigorous debugging and testing were conducted to ensure both hardware and software components worked flawlessly
+               together. Furthermore, I designed a customized PCB using Altium, with fabrication completed by JLCPCB, ensuring a tailored hardware foundation for the project.
+            </p>
         </div>
       </div>
 
@@ -217,13 +201,18 @@
         <div class="container">
             <h4><b>Algorithmic Trading Software</b></h4> 
             <img src="project1.jpg" alt="Project 1 image" style="width:100%">
-            <p>aaa.</p> 
+            <p align="justify">
+              Crafted an algorithmic trading system focused on automating contract spread trades on the CBOE options exchanges, utilizing Python for real-time data analysis. 
+              This system optimizes buys and sells in the NASDAQ market through strategic use of technical indicators. Additionally, I developed a Python-based backtesting tool, 
+              enabling strategy simulation and performance visualization. This project demanded a deep dive into Python and IBKR API documentation, financial 
+              trading frameworks and data integration.
+            </p> 
         </div>
       </div>
 
       <div class="bird_image">
         <div class="container">
-            <img src="bird.gif" alt="..." style="width:50%; margin:0 auto;">
+            <img src="turkey.gif" alt="..." style="width:30%; margin:0 auto;">
         </div>
       </div>
 

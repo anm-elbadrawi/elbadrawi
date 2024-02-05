@@ -3,7 +3,7 @@
   --primary-color: #3498db; /* Change this to your primary color */
   --secondary-color: #000000; /* Change this to your secondary color */
   --text-color: #333; /* Change this to your text color */
-  --background-color: #fff; /* Change this to your background color */
+  --background-color: #ffffff; /* Change this to your background color */
 }
 
 /* Reset some default browser styles */
@@ -61,8 +61,17 @@ a:hover {
   margin: 0 auto;
   display: flex;
   flex-flow: column wrap;
-  justify-content: space-evenly;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-wrapper {
+  flex: 1; /* This makes each video take up equal space within the container */
+  margin: 10px auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 header {
@@ -196,3 +205,4 @@ hr {
   width: 100%; /* Adjust the width as needed */
   margin: 20px auto; /* Center the line with automatic horizontal margins */
 }
+
