@@ -135,22 +135,17 @@
         <div class="container">
             <h4><b>Energy-Harvesting Ultra-Low-Power RF Transmitter</b></h4>
             <img src="block_diagram.png" alt="Energy-Harvesting Block Diagram" title = "Energy-Harvesting Block Diagram" style="width:100%">
-            <details>
-              <summary>Summary</summary>
-              <p align="justify">
-                Created an battery-less ultra-low power RF transmitter powered by a small magnetic generator. The transmitter circuit consisted of a CC1101 Transceiver controlled with an MSP430 MCU via SPI. 
-                By programming the MSP430 in assembly, and using various techniques to speed up cold start time, the energy consumption per transmission was reduced to 300 microJoules. Rather than a Schottky diode for 
-                rectification, an LT8672 active rectifier controller was used to avoid the losses in the forward voltage drop of a diode. The reciever would recieve the signal through the CC1101 and send that data to the ESP32, 
-                where the light is toggled, and corresponding power data is sent to a web server for logging.
-              </p>
-          </details>
-
               <div class="accordion-item">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
-                  Section 1
+                  Project Description
                 </button>
                 <div class="accordion-content">
-                  <p>Content for Section 1...</p>
+                  <p align="justify">
+                    Created an battery-less ultra-low power RF transmitter powered by a small magnetic generator. The transmitter circuit consisted of a CC1101 Transceiver controlled with an MSP430 MCU via SPI. 
+                    By programming the MSP430 in assembly, and using various techniques to speed up cold start time, the energy consumption per transmission was reduced to 300 microJoules. Rather than a Schottky diode for 
+                    rectification, an LT8672 active rectifier controller was used to avoid the losses in the forward voltage drop of a diode. The reciever would recieve the signal through the CC1101 and send that data to the ESP32, 
+                    where the light is toggled, and corresponding power data is sent to a web server for logging.
+                  </p>
                 </div>
               </div>
         </div>
@@ -246,14 +241,14 @@
         </div>
       </div>
 
-</div>
+    </div>
 
       <footer>
         <div class="footer-content">
           <small>© 2024 Ahmed Elbadrawi</small>
         </div>
       </footer>
-          </div>
-          
+      </div>
+    <script src="project.js"></script>
   </body>
 </html>
