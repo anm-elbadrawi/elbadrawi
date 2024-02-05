@@ -50,9 +50,23 @@
         <div class="front-page">
           <div class="bio-text">
             <p>Hi, I’m <strong>Ahmed</strong>.</p>
-            <p>
-              I am a fifth year Electrical Engineering Student at the UofA with a focus on RF and Digital IC design.
+            <p align = "justify">
+              I am a fifth year Electrical Engineering Student at the UofA with a focus on RF and Digital IC design.  I have a strong passion for electronics, and have built my own electronics 
+              lab at home for my personal projects. Currently I'm working with a startup, Pocket Clinic, to implement low-power oscillators for a wearable bio-medical 
+              sensing device. For my capstone project, I'm developing an battery-less ultra-low-power RF transmitter for home and industrial automation.
             </p>
+            <div class="videos-row">
+              <div class="video-wrapper">
+                
+                  <img src="lab_setup.jpg" alt="My Home Lab" title = "My home electronics lab" style="width:90%">
+                  
+              </div>
+              <div class="video-wrapper">
+                <img src="radios.jpg" alt="My Handheld Transceiver collection" title = "My Handheld Transceiver collection" style="width:90%">
+              </div>
+             </div>
+            
+            
 
             <hr>
             
@@ -120,20 +134,34 @@
       <div class="project">
         <div class="container">
             <h4><b>Energy-Harvesting Ultra-Low-Power RF Transmitter</b></h4>
-            <img src="block_diagram.png" alt="Energy-Harvesting Block Diagram" style="width:100%">
-            <p align="justify">
-              Created an battery-less ultra-low power RF transmitter powered by a small magnetic generator. The transmitter circuit consisted of a CC1101 Transceiver controlled with an MSP430 MCU via SPI. 
-              By programming the MSP430 in assembly, and using various techniques to speed up cold start time, the energy consumption per transmission was reduced to 300 microJoules. Rather than a Schottky diode for 
-              rectification, an LT8672 active rectifier controller was used to avoid the losses in the forward voltage drop of a diode. The reciever would recieve the signal through the CC1101 and send that data to the ESP32, 
-              where the light is toggled, and corresponding power data is sent to a web server for logging.
-            </p>
+            <img src="block_diagram.png" alt="Energy-Harvesting Block Diagram" title = "Energy-Harvesting Block Diagram" style="width:100%">
+            <details>
+              <summary>Summary</summary>
+              <p align="justify">
+                Created an battery-less ultra-low power RF transmitter powered by a small magnetic generator. The transmitter circuit consisted of a CC1101 Transceiver controlled with an MSP430 MCU via SPI. 
+                By programming the MSP430 in assembly, and using various techniques to speed up cold start time, the energy consumption per transmission was reduced to 300 microJoules. Rather than a Schottky diode for 
+                rectification, an LT8672 active rectifier controller was used to avoid the losses in the forward voltage drop of a diode. The reciever would recieve the signal through the CC1101 and send that data to the ESP32, 
+                where the light is toggled, and corresponding power data is sent to a web server for logging.
+              </p>
+          </details>
+
+              <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                  Section 1
+                </button>
+                <div class="accordion-content">
+                  <p>Content for Section 1...</p>
+                </div>
+              </div>
         </div>
       </div>
+
+      <hr class = "dashed">
 
       <div class="project">
         <div class="container">
             <h4><b>Soft-Core CPU Implemented with a Controller and Datapath</b></h4>
-            <img src="synth_layout.png" alt="Synthesized Layout of the Controller" style="width:100%">
+            <img src="synth_layout.png" alt="Synthesized Layout of the Controller" title = "Synthesized Layout of the Controller" style="width:100%">
             <p align="justify">
               Developed and validated a soft-core CPU via VHDL, including the datapath, controller, and its peripherals. This was executed on a Zybo-7000 FPGA board for tangible testing and verification.
               Various instructions were coded into the controller, for a total of 12 different instructions. The culmination of this work was a unique
@@ -146,21 +174,23 @@
       <div class="project">
         <div class="container">
             <h4><b>Web-Enabled LCD Stock Ticker Display</b></h4>
-            <div class="video-wrapper">
-                <video width="320" height="240" controls>
-                  <source src="bootup_continual_scroll.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="video-wrapper">
-                <video width="320" height="240" controls>
-                  <source src="finished_pcb.mp4" type="video/mp4">
-                </video>
+            <div class="videos-row">
+                <div class="video-wrapper">
+                  <video width="320" height="240" controls>
+                    <source src="bootup_continual_scroll.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="video-wrapper">
+                  <video width="320" height="240" controls>
+                    <source src="finished_pcb.mp4" type="video/mp4">
+                  </video>
+                </div>
             </div>
             <p align="justify">
               I designed and implemented a Stock-Ticker Display system, integrating real-time stock data visualization on a 1602 LCD powered by an ESP32 MCU. This project involved creating an
               intuitive GUI for easy navigation through various menu options, utilizing freeRTOS for its development. I also developed software capable of extracting CBOE Level 2 stock data 
               from HTML sources, enhancing the system's data scraping efficiency. Rigorous debugging and testing were conducted to ensure both hardware and software components worked flawlessly
-               together. Furthermore, I designed a customized PCB using Altium, with fabrication completed by JLCPCB, ensuring a tailored hardware foundation for the project.
+               together. A customized PCB was designed using Altium, with fabrication completed by JLCPCB for a tailored hardware foundation.
             </p>
         </div>
       </div>
@@ -168,7 +198,7 @@
       <div class="project">
         <div class="container">
             <h4><b>Ultrasonic Parametric Array for Directional Audio</b></h4> 
-            <img src="project1.jpg" alt="Project 1 image" style="width:100%">
+            <img src="project1.jpg" alt="Project 1 image" title = "aaa" style="width:100%">
             <p>aaa.</p> 
         </div>
       </div>
@@ -176,7 +206,7 @@
       <div class="project">
         <div class="container">
             <h4><b>Microwave Transistor Amplifier</b></h4> 
-            <img src="project1.jpg" alt="Project 1 image" style="width:100%">
+            <img src="project1.jpg" alt="Project 1 image" title = "aaa" style="width:100%">
             <p>aaa.</p> 
         </div>
       </div>
@@ -184,7 +214,7 @@
       <div class="project">
         <div class="container">
             <h4><b>2.45GHz Transistor Amplifier</b></h4> 
-            <img src="project1.jpg" alt="Project 1 image" style="width:100%">
+            <img src="project1.jpg" alt="Project 1 image" title = "aaa" style="width:100%">
             <p>aaa.</p> 
         </div>
       </div>
@@ -192,7 +222,7 @@
       <div class="project">
         <div class="container">
             <h4><b>AVR-Based Reaction Timer</b></h4> 
-            <img src="project1.jpg" alt="Project 1 image" style="width:100%">
+            <img src="project1.jpg" alt="Project 1 image" title = "aaa" style="width:100%">
             <p>aaa.</p> 
         </div>
       </div>
@@ -200,7 +230,7 @@
       <div class="project">
         <div class="container">
             <h4><b>Algorithmic Trading Software</b></h4> 
-            <img src="project1.jpg" alt="Project 1 image" style="width:100%">
+            <img src="project1.jpg" alt="Project 1 image" title = "aaa" style="width:100%">
             <p align="justify">
               Crafted an algorithmic trading system focused on automating contract spread trades on the CBOE options exchanges, utilizing Python for real-time data analysis. 
               This system optimizes buys and sells in the NASDAQ market through strategic use of technical indicators. Additionally, I developed a Python-based backtesting tool, 
@@ -212,13 +242,11 @@
 
       <div class="bird_image">
         <div class="container">
-            <img src="turkey.gif" alt="..." style="width:30%; margin:0 auto;">
+            <img src="turkey.gif" alt="..." title = "aaa" style="width:30%; margin:0 auto;">
         </div>
       </div>
 
 </div>
-
-      
 
       <footer>
         <div class="footer-content">

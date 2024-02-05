@@ -65,6 +65,14 @@ a:hover {
   align-items: center;
 }
 
+.videos-row {
+  display: flex;
+  flex-flow: row wrap; /* Adjust this as needed */
+  justify-content: center; /* Centers the videos in the row */
+  align-items: center; /* Aligns videos vertically */
+  width: 100%; /* Ensures it takes full width of its parent */
+}
+
 .video-wrapper {
   flex: 1; /* This makes each video take up equal space within the container */
   margin: 10px auto;
@@ -201,8 +209,35 @@ small {
 }
 
 hr {
-  border: 1px solid #ccc; /* Set the color and thickness of the dividing line */
+  border: 2px solid #ccc; /* Set the color and thickness of the dividing line */
   width: 100%; /* Adjust the width as needed */
   margin: 20px auto; /* Center the line with automatic horizontal margins */
 }
 
+hr.dashed {
+  border: 1px dashed #ccc; /* Set the color and thickness of the dividing line */
+  width: 100%; /* Adjust the width as needed */
+  margin: 20px auto; /* Center the line with automatic horizontal margins */
+}
+
+.accordion-header {
+  background-color: #eee;
+  border: none;
+  outline: none;
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.accordion-content {
+  display: none;
+  padding: 0 15px;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+/* Optional: Add styles for when an accordion section is expanded */
+.accordion-content.active {
+  display: block;
+}
