@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  font-size: 18px;
+  font-size: 14px;
   padding: 1.5em;
   line-height: 1.25em;
   color: var(--text-color); /* Use the text color variable */
@@ -21,6 +21,12 @@ body {
     --background-color
   ); /* Use the background color variable */
   margin: 0;
+
+  background-image: linear-gradient(to right, white, #e1ecf3, white);
+
+  background-image: linear-gradient(to right, white, white 20%, #e1ecf3 20%, #e1ecf3 80%, white 80%);
+
+  
 }
 
 /* Header styles */
@@ -141,6 +147,9 @@ header a:hover {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  font-size: 16px;
+  padding: 1.5em;
+  line-height: 1.25em;
 }
 
 .experience-item {
@@ -172,6 +181,15 @@ header a:hover {
 .company {
   font-weight: bold;
   margin-right: 10px;
+}
+
+.project {
+  border: 2px solid #000; /* Black border around the textbox */
+  padding: 20px; /* Space between the border and the content */
+  margin: 20px 0; /* Adds space around the textbox */
+  background-color: #f9f9f9; /* Light grey background */
+  border-radius: 5px; /* Optional: Rounds the corners of the border */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: Adds a subtle shadow */
 }
 
 .details {
@@ -241,3 +259,4 @@ hr.dashed {
 .accordion-content.active {
   display: block;
 }
+
