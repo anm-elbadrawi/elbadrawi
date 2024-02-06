@@ -24,7 +24,7 @@ body {
 
   background-image: linear-gradient(to right, white, #e1ecf3, white);
 
-  background-image: linear-gradient(to right, white, white 20%, #e1ecf3 20%, #e1ecf3 80%, white 80%);
+  /*background-image: linear-gradient(to right, white, white 20%, #e1ecf3 20%, #e1ecf3 80%, white 80%);*/
 
   
 }
@@ -154,7 +154,7 @@ header a:hover {
 
 .experience-item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin-bottom: 10px;
 }
 
@@ -258,5 +258,11 @@ hr.dashed {
 /* Optional: Add styles for when an accordion section is expanded */
 .accordion-content.active {
   display: block;
+}
+
+.company-logo {
+  width: 50px; /* Adjust as needed */
+  height: 50px; /* Maintains aspect ratio */
+  margin-right: 20px; /* Adds space between logo and text */
 }
 
