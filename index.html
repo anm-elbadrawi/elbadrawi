@@ -49,30 +49,28 @@
       <main>
         <div class="front-page">
           <div class="bio-text">
-            <p>Hi, I’m <strong>Ahmed</strong>.</p>
-            <img src="media/Marvin_the_Martian.svg.png" alt="Marvin" title="Marvin" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
-            <p align = "justify">
-              I am a fifth year Electrical Engineering Student at the UofA with a focus on RF and Digital IC design.  I have a strong passion for electronics, and have built my own electronics 
-              lab at home for my personal projects. Currently I'm working with a startup, Pocket Clinic, to implement low-power oscillators for a wearable bio-medical 
-              sensing device. For my capstone project, I'm developing an battery-less ultra-low-power RF transmitter for home and industrial automation.
-            </p>
-            <div class="videos-row">
-              <div class="video-wrapper">
-                
-                  <img src="media/lab_setup.jpg" alt="My Home Lab" title = "My home electronics lab (there's no circuit on the breadboard - just there for display)" style="width:90%">
-                  
+            <div class="introbox">
+              <p>Hi, I’m <strong>Ahmed</strong>.</p>
+              <img src="media/Marvin_the_Martian.svg.png" alt="Marvin" title="Marvin" style="display: block; margin-left: auto; margin-right: auto; width: 20%;">
+              <p align = "justify">
+                I am a fifth year Electrical Engineering Student at the UofA with a focus on RF and Digital IC design.  I have a strong passion for electronics, and have built my own electronics 
+                lab at home for my personal projects. Currently I'm working with a startup, Pocket Clinic, to implement low-power oscillators for a wearable bio-medical 
+                sensing device. For my capstone project, I'm developing an battery-less ultra-low-power RF transmitter for home and industrial automation.
+              </p>
+              <div class="videos-row">
+                <div class="video-wrapper">    
+                  <img src="media/lab_setup.jpg" alt="My Home Lab" title = "My home electronics lab (there's no circuit on the breadboard - just there for display)" style="width:90%">  
+                </div>
+                <div class="video-wrapper">
+                  <img src="media/radios.jpg" alt="My Handheld Transceiver collection" title = "My Handheld Transceiver collection" style="width:90%">
+                </div>
               </div>
-              <div class="video-wrapper">
-                <img src="media/radios.jpg" alt="My Handheld Transceiver collection" title = "My Handheld Transceiver collection" style="width:90%">
-              </div>
-             </div>
-            
-            
-
+            </div>
             <hr>
             
             <h2 align = "center"><b>[Experience]</b></h2>
             <!-- ... Rest of your HTML code ... -->
+            <div class="introbox">
             <ul class="experience-list">
               <li class="experience-item">
                 <img src="media/pocket_clinic_logo.jpg" alt="Pocket Clinic Logo" class="company-logo">
@@ -126,6 +124,7 @@
               </li>
               <!-- Add more companies and roles as needed -->
             </ul>
+            </div>
             <!-- ... Rest of your HTML code ... -->
           </div>
         </div>
@@ -148,7 +147,7 @@
 
       <div class="project">
         <div class="container">
-            <h4><b>Energy-Harvesting Ultra-Low-Power RF Transmitter</b></h4>
+            <h3><b>Energy-Harvesting Ultra-Low-Power RF Transmitter</b></h3>
             <img src="media/block_diagram.png" alt="Energy-Harvesting Block Diagram" title = "Energy-Harvesting Block Diagram" style="width:100%">
             <p align="justify">
               Created a battery-less ultra-low power RF transmitter powered by a small magnetic generator. The transmitter circuit consisted of a CC1101 Transceiver controlled with an MSP430 MCU via SPI. 
@@ -161,20 +160,20 @@
 
       <div class="project">
         <div class="container">
-            <h4><b>Soft-Core CPU Implemented with a Controller and Datapath</b></h4>
+            <h3><b>Soft-Core CPU Implemented with a Controller and Datapath</b></h3>
             <img src="media/synth_layout.png" alt="Synthesized Layout of the Controller" title = "Synthesized Layout of the Controller" style="width:100%">
             <p align="justify">
-              Developed and validated a soft-core CPU via VHDL, including the datapath, controller, and its peripherals. This was executed on a Zybo-7000 FPGA board for tangible testing and verification.
-              Various instructions were coded into the controller, for a total of 12 different instructions. The culmination of this work was a unique
-              instruction set that improved CPU functionality. Through detailed VHDL programming and comprehensive FPGA testing, it was ensured the design was robust under different conditions, 
-              showcasing the effectiveness of our instruction set architecture. The Fibonacci sequence was coded into the program memory, where it was tested and verified via simulations and on-board testing.
+              Developed and validated a soft-core CPU via VHDL, including the datapath, controller, and its peripherals. This was executed on a Zybo-7000 FPGA board for tangible testing and 
+              verification. Various instructions were coded into the controller, for a total of 12 different instructions. The culmination of this work was a unique instruction set that 
+              improved CPU functionality. Through detailed VHDL programming and comprehensive FPGA testing, it was ensured the design was robust under different conditions, showcasing the 
+              effectiveness of our instruction set architecture. The Fibonacci sequence was coded into the program memory, where it was tested and verified via simulations and on-board testing.
             </p>
         </div>
       </div>
 
       <div class="project">
         <div class="container">
-            <h4><b>Web-Enabled LCD Stock Ticker Display</b></h4>
+            <h3><b>Web-Enabled LCD Stock Ticker Display</b></h3>
             <div class="videos-row">
                 <div class="video-wrapper">
                   <video width="280" height="240" controls>
@@ -198,49 +197,44 @@
 
       <div class="project">
         <div class="container">
-            <h4><b>Ultrasonic Parametric Array for Directional Audio</b></h4> 
-            <img src="media/project1.jpg" alt="Project 1 image" title = "aaa" style="width:100%">
+            <h3><b>Ultrasonic Parametric Array for Directional Audio</b></h3> 
+            <img src="media/Ultrasonic_Drivers.png" alt="Ultrasonic Drivers" title = "Ultrasonic Driver V1 and V2" style="width:100%">
             <p>I developed a project that focused on generating an FM modulated ultrasonic beam for achieving highly directional audio,
                 which demodulates upon contact with a surface. The core of this innovation involved using a 555 timer in astable mode 
                 for the FM modulation of an audio signal. This modulated signal was then amplified through a TC4427A MOSFET driver to
                 power an ultrasonic transducer array. To fine-tune the system, I employed LTSpice for simulation purposes, analyzing 
-                the frequency spectrum of the output signal and adjusting component values for optimal performance.
+                the frequency spectrum of the output signal and adjusting component values for optimal performance. Version 1 is shown 
+                on the left, while version 2 is on the right. In the newer revision, a potentiometer was added for frequency trimming, 
+                the Op-Amp was replaced with a MOSFET driver, and an audio jack was added.
             </p> 
         </div>
       </div>
 
       <div class="project">
         <div class="container">
-            <h4><b>Microwave Transistor Amplifier</b></h4> 
+          <h3><b>2.45 GHz RF Transistor Amplifier</b></h3> 
             <img src="media/RF_amplifier.jpg" alt="RF Amplifier" title = "2.45 GHz RF Amplifier" style="width:100%">
-            <p>I designed and built a matched transistor amplifier capable of operating at 1GHz, utilizing a FR-4 substrate microstrip PCB 
-              waveguide. This setup achieved an overall gain of 11dB and an input return loss of 15dB, highlighting its efficiency in signal
-               amplification at high frequencies. The project involved extensive use of Pathwave Advanced Design System (ADS) software for the 
-               synthesis, design, and simulation of double stub matching networks. These networks were crucial for achieving conjugate matching
-                at both the input and output of the transistor, optimizing the amplifier's performance.
-                I specifically simulated the BFU520 BJT RF transistor within Pathwave ADS to verify its stability at the intended operating
-                 frequency and Q-point, ensuring the amplifier's reliability and effectiveness. To fine-tune the amplifier's performance, I
-                  employed a commercial Vector Network Analyzer (VNA) to measure and analyze the S-parameters. This allowed for precise 
-                  adjustments to the stub matching networks, ensuring optimal signal integrity and amplifier performance.
+            <p>I designed and built a matched transistor amplifier capable of operating at 2.45GHz, utilizing microstrip technology on a FR4 substrate. 
+              This setup achieved an overall gain of 11dB and an input return loss of 15dB, highlighting its efficiency in signal amplification at high 
+              frequencies. The project involved extensive use of Pathwave Advanced Design System (ADS) software for the synthesis, design, and simulation
+               of double stub matching networks. These networks were crucial for achieving conjugate matching at both the input and output of the transistor, 
+               optimizing the amplifier's performance. I specifically simulated the BFU520 BJT RF transistor within Pathwave ADS to verify its stability at the
+                intended operating frequency and Q-point, ensuring the amplifier's reliability and effectiveness. To fine-tune the amplifier's performance, I 
+                employed a commercial Vector Network Analyzer (VNA) to measure and analyze the S-parameters. This allowed for precise adjustments to the matching
+                 networks, ensuring optimal signal integrity and amplifier performance.
             </p> 
-        </div>
-      </div>
-      
-      <div class="project">
-        <div class="container">
-            <h4><b>2.45GHz Transistor Amplifier</b></h4> 
-            <img src="media/project1.jpg" alt="Project 1 image" title = "aaa" style="width:100%">
-            <p>aaa.</p> 
         </div>
       </div>
 
       <div class="project">
         <div class="container">
-            <h4><b>AVR-Based Reaction Timer</b></h4> 
-            <img src="media/project1.jpg" alt="Project 1 image" title = "aaa" style="width:100%">
-            <p>I developed an AVR-based reaction timer game, incorporating a laser-tripwire mechanism, using an AVR microcontroller and coding in C with MPLABx IDE.
+            <h3><b>AVR-Based Reaction Timer</b></h3> 
+            <div class="video-wrapper">
+              <img src="media/reaction_timer.png" alt="Reaction Timer" title = "Reaction Timer Game on a breadboard" style="width:35%">
+            </div>
+            <p>Ceveloped an AVR-based reaction timer game, incorporating a laser-tripwire mechanism, using an AVR microcontroller and coding in C with MPLABx IDE.
                The project features a user interface displayed on a 1602 LCD, allowing for easy navigation through the game's menu. To facilitate interaction with 
-               different components, I employed interrupts, timers, and Analog-to-Digital Converters (ADC). During the development phase, I utilized an oscilloscope
+               different components, interrupts, timers, and Analog-to-Digital Converters (ADC) were employed in the firmware. During the development phase, I utilized an oscilloscope
                and a signal generator to test and verify the system's functionality.
             </p> 
         </div>
@@ -248,7 +242,7 @@
 
       <div class="project">
         <div class="container">
-            <h4><b>Algorithmic Trading Software</b></h4> 
+            <h3><b>Algorithmic Trading Software</b></h3> 
             <img src="media/chartdata_AAPL.png" alt="AAPL Chart Data" title = "AAPL Stock Chart Data" style="width:100%">
             <p align="justify">
               Crafted an algorithmic trading system focused on automating contract spread trades on the CBOE options exchanges, utilizing Python for real-time data analysis. 
@@ -261,7 +255,7 @@
 
       <div class="bird_image">
         <div class="container">
-            <img src="media/turkey_cutout.gif" alt="..." title = "aaa" style="width:20%; margin:0 auto;">
+            <img src="media/turkey_cutout.gif" alt="..." title = "aaa" style="width:10%; margin:0 auto;">
         </div>
       </div>
 
