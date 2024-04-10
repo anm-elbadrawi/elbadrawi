@@ -1,0 +1,157 @@
+#include <SPI.h>
+
+// ESP32 PIN DEF
+#define MISO 19
+#define MOSI 23
+#define SCK 18
+#define CC1101_CS 5
+//#define GDO0 2
+#define GDO2 4
+
+byte receivedData[7];
+
+void setup() {
+  Serial.begin(9600);
+  SPI.begin(SCK, MISO, MOSI, CC1101_CS);
+  SPI.setBitOrder(MSBFIRST);
+  SPI.setDataMode(SPI_MODE0);
+  
+  
+  pinMode(GDO2, INPUT);
+
+  pinMode(CC1101_CS, OUTPUT);
+  digitalWrite(CC1101_CS, HIGH);
+
+  resetCC1101(); // Reset CC1101
+  setupCC1101(); // Setup CC1101 with initial configuration
+
+  sendStrobe(0x36); // Exit RX / TX
+  
+  sendStrobe(0x3A); // Flush RX FIFO (SFRX command)
+
+  sendStrobe(0x34); // Enable RX
+
+  //sendStrobe(0x3A); // Flush RX FIFO (SFRX command) //need to flush fifo here as well
+  
+  Serial.println("Initalization DONE");
+}
+
+void loop() {
+  if (available()) {
+    byte receivedByte = readData();
+    Serial.print("Received byte: ");
+    Serial.println(receivedByte, HEX);
+    Serial.println("----------------------------------------");
+  }
+  
+  delay(3000);
+}
+
+bool available() {
+  digitalWrite(CC1101_CS, LOW);
+  //
+  SPI.transfer(0x3B | 0xC0); // Check number of bytes in RX FIFO (0x3B | 0xC0) = 0xFB
+  byte fifo_rxbytes = SPI.transfer(0); // Dummy byte to read the status
+  Serial.print("RX FIFO Size: "); // Debugging line
+  Serial.println(fifo_rxbytes & 0x7F); // Print number of bytes in RX FIFO
+
+  SPI.transfer(0xF4); // test (read RSSI)
+  byte rssi = SPI.transfer(0); // test
+  Serial.print("RSSI: "); // Debugging line
+  Serial.println(rssi); // Print 
+
+  SPI.transfer(0xF8); // test (read pktstatus for CCA) 
+  byte pktstatus = SPI.transfer(0); // test
+  Serial.print("Channel Clear: "); // Debugging line
+  Serial.println(pktstatus, HEX); // Print number of bytes in RX FIFO
+
+  digitalWrite(CC1101_CS, HIGH);
+  
+  // Check if there are bytes in the RX FIFO and ensure it's above a certain threshold
+  // Here the threshold is set to 0, meaning any data will be considered valid.
+  // Adjust the threshold based on your expected packet size to differentiate noise from actual data
+  return ((fifo_rxbytes & 0x7F) > 0); // Adjust '> 0' if you have a specific threshold in mind status - 0x7F is a mask to select all bits but MSB 
+}
+
+byte readData() {  
+  digitalWrite(CC1101_CS, LOW); 
+  SPI.transfer(0x3F | 0x80); // Read RxFIFO single byte (0x3F | 0x80) = 0xBF
+  byte value = SPI.transfer(0); // send dummy value then store in len
+  digitalWrite(CC1101_CS, HIGH);
+  //sendStrobe(0x3A); // Flush RX FIFO (SFRX command)
+  return value;
+}
+
+void writeReg(byte addr, byte value) {
+  digitalWrite(CC1101_CS, LOW);
+  while (digitalRead(MISO)); // Wait for MISO to go low
+  SPI.transfer(addr); // Write address
+  SPI.transfer(value); // Write value
+  digitalWrite(CC1101_CS, HIGH);
+}
+
+void writeBurstReg(byte addr, byte* values, byte len) {
+  digitalWrite(CC1101_CS, LOW);
+  while (digitalRead(MISO)); // Wait for MISO to go low
+  SPI.transfer(addr | 0x40); // Write address in burst mode
+  for(byte i = 0; i < len; i++) {
+    SPI.transfer(values[i]);
+  }
+  digitalWrite(CC1101_CS, HIGH);
+}
+
+void sendStrobe(byte command) {
+  digitalWrite(CC1101_CS, LOW);
+  while (digitalRead(MISO)); // Wait for MISO to go low
+  SPI.transfer(command); // Send command strobe
+  digitalWrite(CC1101_CS, HIGH);
+}
+
+void resetCC1101() {
+  digitalWrite(CC1101_CS, LOW);
+  delay(1);
+  digitalWrite(CC1101_CS, HIGH);
+  delay(1);
+  digitalWrite(CC1101_CS, LOW);
+  while (digitalRead(MISO)); // Wait for MISO to go low
+  SPI.transfer(0x30); // Send reset command strobe
+  delay(1);
+  digitalWrite(CC1101_CS, HIGH);
+}
+
+void setupCC1101() { //REGISTER SETUP
+  writeReg(0x00, 0x06); // IOCFG0 //---asserts when the sync word has been received if 0x07--- 
+  writeReg(0x03, 0x42); // FIFOTHR //--set the FIFO RX THRESHOLD TO 12 BYTES
+  writeReg(0x08, 0x01); // PKTCTRL0 //disable CRC
+  writeReg(0x0B, 0x06); // FSCCTRL1
+ 
+  byte initConfig[] = {
+    0x10, // Value for FREQ2
+    0xA7, // Value for FREQ1
+    0x62, // Value for FREQ0
+    0xF5, // Value for MDMCFG4
+    0x83, // Value for MDMCFG3
+    0x10, // Value for MDMCFG2 //disable
+  }; writeBurstReg(0x0D, initConfig, sizeof(initConfig)); // 0x0D is the starting address of the FREQ2 register
+  
+  writeReg(0x15, 0x15); // DEVIATN
+  writeReg(0x17, 0x0C); // MCSM1 // main radio control state machine config - changed to stay in rx after packet --ALSO SET CLEAR CHANNEL INDICATION TO 00 (ALWAYS ON)
+  writeReg(0x18, 0x18); // MCSM0
+  writeReg(0x19, 0x16); // FOCCFG
+  writeReg(0x20, 0xFB); // WORCTRL
+
+  byte initConfig1[] = {
+    0xE9, // Value for FSCAL3
+    0x2A, // Value for FSCAL2
+    0x00, // Value for FSCAL1
+    0x1F, // Value for FSCAL0
+  }; writeBurstReg(0x23, initConfig1, sizeof(initConfig1)); // 0x00 is the starting address of the FSCAL3 register
+
+  byte initConfig2[] = {
+    0x81, // Value for TEST2
+    0x35, // Value for TEST1
+    0x09, // Value for TEST0
+  };writeBurstReg(0x2B, initConfig2, sizeof(initConfig2)); // 0x00 is the starting address of the config register
+
+   writeReg(0x3E, 0x60); // PATABLE0
+}
